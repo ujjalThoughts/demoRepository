@@ -1,0 +1,18 @@
+package abstractionSession;
+
+public class TestBank {
+
+	public static void main(String[] args) {
+		
+		ICICIBank a=new ICICIBank();
+		a.educationLoan();
+		a.homeLoan();
+		a.carLoan();
+		
+		a.credit();
+		a.debit();
+		a.transferMoney();
+
+	}
+
+}

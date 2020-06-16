@@ -1,0 +1,17 @@
+package com.crm.testcases;
+
+import com.crm.pages.HomePage;
+import com.crm.pages.LoginPage;
+
+public class ContactsPageTest {
+	
+	LoginPage loginPage;
+	HomePage homePage;
+	
+	public ContactsPageTest()
+	{
+		super();//This will call constructor in the TestBase(Parent class) and then the property will be initialized.
+	}
+	
+
+}

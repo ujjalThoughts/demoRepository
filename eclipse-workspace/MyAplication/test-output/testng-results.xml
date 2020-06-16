@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-05-03T14:49:23Z" name="Default suite" finished-at="2019-05-03T14:49:46Z" duration-ms="23102">
+    <groups>
+    </groups>
+    <test started-at="2019-05-03T14:49:23Z" name="Default test" finished-at="2019-05-03T14:49:46Z" duration-ms="23102">
+      <class name="mmtBooking.MMTbooking">
+        <test-method is-config="true" signature="browserSetup()[pri:0, instance:mmtBooking.MMTbooking@37f1104d]" started-at="2019-05-03T14:49:23Z" name="browserSetup" finished-at="2019-05-03T14:49:43Z" duration-ms="20061" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserSetup -->
+        <test-method signature="homePage()[pri:1, instance:mmtBooking.MMTbooking@37f1104d]" started-at="2019-05-03T14:49:43Z" name="homePage" finished-at="2019-05-03T14:49:43Z" duration-ms="289" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homePage -->
+        <test-method signature="loginPage()[pri:2, instance:mmtBooking.MMTbooking@37f1104d]" started-at="2019-05-03T14:49:43Z" name="loginPage" description="Login to WAUT" finished-at="2019-05-03T14:49:46Z" duration-ms="2705" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginPage -->
+        <test-method is-config="true" signature="tearDownSession()[pri:0, instance:mmtBooking.MMTbooking@37f1104d]" started-at="2019-05-03T14:49:46Z" name="tearDownSession" finished-at="2019-05-03T14:49:46Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownSession -->
+      </class> <!-- mmtBooking.MMTbooking -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,8 @@
+
+
+public class Snippet {
+	public static void main(String[] args) {
+		driver.manage().window().maximize();
+				driver.manage().deleteAllCookies();
+	}
+}

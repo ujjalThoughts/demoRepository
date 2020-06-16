@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [WalletHub]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="FacebookTest(failed)">
+    <parameter name="password" value="Ujjal@4792"/>
+    <parameter name="username" value="sujjal.saha4@gmail.com"/>
+    <classes>
+      <class name="walletHub.Assignment1">
+        <methods>
+          <include name="sessionTerminate"/>
+          <include name="browserSetUp"/>
+          <include name="fbStatus"/>
+          <include name="facebookLogin" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- walletHub.Assignment1 -->
+    </classes>
+  </test> <!-- FacebookTest(failed) -->
+</suite> <!-- Failed suite [WalletHub] -->

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="URL" value="https://alloyui.com/examples/datepicker/"/>
+  <test name="Assignment 01 (FIREFOX)(failed)">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="URL" value="https://www.google.com/"/>
+    <classes>
+      <class name="com.cts.aig.selenium.test.testCase.Assignment06">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment06 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment09">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment09 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment02">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment02 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment03">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment03 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment07">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment07 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment08">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment08 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment04">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment04 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment05">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment05 -->
+      <class name="com.cts.aig.selenium.test.testCase.Assignment01">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="initialization"/>
+          <include name="initialization"/>
+          <include name="initialization"/>
+          <include name="browserInitialization" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.cts.aig.selenium.test.testCase.Assignment01 -->
+    </classes>
+  </test> <!-- Assignment 01 (FIREFOX)(failed) -->
+</suite> <!-- Failed suite [Suite] -->

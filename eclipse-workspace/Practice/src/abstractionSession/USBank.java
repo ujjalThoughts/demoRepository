@@ -1,0 +1,11 @@
+package abstractionSession;
+
+public interface USBank {
+
+	int min_bal=1000;//Static and final in nature
+	public void credit();
+	
+	public void debit();
+	
+	public void transferMoney();
+}

@@ -1,0 +1,30 @@
+package com.crm.testcases;
+
+import org.testng.annotations.BeforeTest;
+
+import com.crm.base.TestBase;
+import com.crm.pages.HomePage;
+import com.crm.pages.LoginPage;
+
+public class HomePageTest extends TestBase{
+	
+	LoginPage loginPage; 
+	HomePage homePage;
+	public HomePageTest()
+	{
+		super();//This will call constructor in the TestBase(Parent class) and then the property will be initialized.
+	}
+	
+	@BeforeTest
+	public void setUp()
+	{
+		initialization();//Here all the initializations will take place already defined in the TestBase class
+		loginPage=new LoginPage();//Creating LoginPage Object
+		loginPage.login(prop.getProperty("USERNAME"), prop.getProperty("PASSWORD"));
+	}
+
+}
+
+
+
+

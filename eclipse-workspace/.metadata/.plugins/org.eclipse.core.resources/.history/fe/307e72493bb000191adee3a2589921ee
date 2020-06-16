@@ -1,0 +1,26 @@
+package interfaceSession;
+
+public class HSBCBank implements USBank{
+	
+	//If a class is implementing any Interface, it's mandatory to define/override all the methods declared in that Interface.
+	public void credit() {
+		System.out.println("hsbc---credit");
+	}
+	
+	public void debit() {
+		System.out.println("hsbc---debit");
+	}
+	
+	public void transferMoney() {
+		System.out.println("hsbc---transferMoney");
+	}
+	
+	public void educationLoan() {
+		System.out.println("hsbc---educatioLoan");
+	}
+	
+	public void carLoan() {
+		System.out.println("hsbc---carLoan");
+	}
+
+}

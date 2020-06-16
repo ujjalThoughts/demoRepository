@@ -1,0 +1,28 @@
+ package com.crm.testcases;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import com.crm.base.TestBase;
+import com.crm.pages.LoginPage;
+
+public class LoginPageTest extends TestBase{
+	
+	LoginPage loginPage;
+	public LoginPageTest()
+	{
+		super();//This will call constructor in the TestBase(Parent class)
+	}
+	@BeforeMethod
+	public void setUp()
+	{
+		initialization();//Here all the initializations will take place already defined in the TestBase class
+		loginPage=new LoginPage();//Creating LoginPage Object
+	}
+
+	@AfterMethod
+	public void tearDown()
+	{
+		driver.quit();
+	}
+}
