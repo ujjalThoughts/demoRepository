@@ -1,0 +1,60 @@
+package com.eweblife.TestCases;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.RSVP.Base.TestBase;
+import com.RSVP.Pages.SignUpPage;
+
+
+
+public class TestRSVPSignUpForm extends TestBase{
+
+	SignUpPage signup;
+	public TestRSVPSignUpForm()
+	{
+		super();
+		}
+	
+	@BeforeMethod
+public void setUp()
+{
+initialization();
+signup=new SignUpPage();
+}
+	
+	@Test(priority=1)
+	public void signUpPageTitleTest()
+	{
+	String title=signup.verifySignUpPageTitle();
+	Assert.assertEquals(title,"RSVP signup - Powered by eWebLife.com");
+	}
+	
+	@Test(priority=2)
+	public void submitWithoutFillingTest() throws InterruptedException
+	{
+	signup.submitWithoutFilling();
+	Thread.sleep(3000);
+	}
+	
+	@Test(priority=3)
+	public void profileImageFunctionalityTest()
+	{
+	signup.profileImageFunctionality();
+	}
+	
+	@Test(priority=4)
+	public void submitAfterFillingTest() throws InterruptedException
+	{
+	signup.submitAfterFilling();
+	}
+	
+	@AfterMethod
+	public void terminateTest(){
+		driver.quit();
+	}
+	
+	
+}

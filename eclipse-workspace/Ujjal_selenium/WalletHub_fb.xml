@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="WalletHub">
+  <test thread-count="5" name="FacebookTest">
+  <parameter name="username" value="sujjal.saha4@gmail.com"/>
+  <parameter name="password" value="Ujjal@4792"/>
+  
+  <classes>
+  	<class name="walletHub.Assignment1"/>
+  </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

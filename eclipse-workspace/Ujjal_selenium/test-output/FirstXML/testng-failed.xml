@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [FirstXML]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Testing XML(failed)">
+    <classes>
+      <class name="webTableConcepts.RedBus">
+        <methods>
+          <include name="launchingBrowser"/>
+          <include name="clickSearch"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- webTableConcepts.RedBus -->
+    </classes>
+  </test> <!-- Testing XML(failed) -->
+</suite> <!-- Failed suite [FirstXML] -->

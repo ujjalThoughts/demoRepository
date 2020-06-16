@@ -1,0 +1,69 @@
+
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+public class AddToCart {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications");
+
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\Sujjal\\eclipse-workspace\\SeleniumPractice\\drivers\\CHROME_DRIVER\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver(options);
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/");
+		driver.manage().window().maximize();
+		//driver.manage().deleteAllCookies();
+		Thread.sleep(3000);
+		
+		String[] requiredItems= {"Brocolli","Beetroot","Brinjal","Mushroom"};
+		
+		addItems(driver,requiredItems);
+	}
+	
+public static void addItems(WebDriver driver,String[] requiredItems) throws InterruptedException {
+		
+		int j=0;
+		
+	List<WebElement> products=driver.findElements(By.cssSelector("h4.product-name"));
+	
+	for(int i=0;i<products.size();i++) {
+		
+		String[] productsName=products.get(i).getText().split("-");
+		String formattedProductsName=productsName[0].trim();
+		
+		//convert array into array list for easy search
+		List<String> requiredItemsList=Arrays.asList(requiredItems);
+		
+		if(requiredItemsList.contains(formattedProductsName))
+		{
+			j++;
+			driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+			
+			if(j==4)
+				break;
+		}
+		
+	}
+	
+	
+	
+		Thread.sleep(2000);
+		// Closing the Tab
+		//driver.close();
+
+	}
+
+}

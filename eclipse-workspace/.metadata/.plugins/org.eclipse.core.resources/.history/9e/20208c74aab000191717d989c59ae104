@@ -1,0 +1,56 @@
+package abstractionSession;
+
+public class ICICIBank implements USBank, RBI {
+
+	
+	//RBI Methods:
+	@Override
+	public void educationLoan() {
+		System.out.println("USBank---education Loan");
+		
+	}
+
+	@Override
+	public void homeLoan() {
+		System.out.println("USBank---home Loan");
+		
+	}
+
+	@Override
+	public void carLoan() {
+		System.out.println("USBank---Car Loan");
+		
+	}
+
+	//USBank methods:
+	@Override
+	public void credit() {
+		System.out.println("RBI---Credit");
+		
+	}
+
+	@Override
+	public void debit() {
+		System.out.println("RBI---dedit");
+		
+	}
+
+	@Override
+	public void transferMoney() {
+		System.out.println("RBI---transfer Money");
+	}
+		
+		//ICICI Bank methods:
+		public void mutualFunds()
+		{
+			System.out.println("ICICI---mutual funds");
+		}
+		
+		public void insurance()
+		{
+			System.out.println("ICICI---Insurance");
+		}
+		
+	}
+
+

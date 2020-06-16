@@ -1,0 +1,16 @@
+package interfaceSession;
+
+public class TestBank {
+
+	public static void main(String[] args) {
+		
+		System.out.println(USBank.min_bal);//Since min_bal is static in nature, need to call it using interface name.
+		HSBCBank a=new HSBCBank();
+		a.credit();
+		a.debit();
+		a.transferMoney();
+		a.educationLoan();
+		a.educationLoan();
+	}
+
+}

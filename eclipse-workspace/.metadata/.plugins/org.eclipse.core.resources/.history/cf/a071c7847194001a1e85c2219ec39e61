@@ -1,0 +1,36 @@
+import java.awt.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+public class AddToCart {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications");
+
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\Sujjal\\eclipse-workspace\\SeleniumPractice\\drivers\\CHROME_DRIVER\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver(options);
+		driver.get("https://www.cleartrip.com/");
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+
+		String[] requiredItems= {"Brocolli","Beetroot","Brinjal","Mushroom"};
+		
+		List<WebElement> itemNames=driver.findElements(By.className("h4.product-name"));
+
+		Thread.sleep(2000);
+		// Closing the Tab
+		driver.close();
+	}
+
+}

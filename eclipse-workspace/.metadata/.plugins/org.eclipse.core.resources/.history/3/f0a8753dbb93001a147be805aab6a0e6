@@ -1,0 +1,152 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class ClearTripAutomation {
+
+	public static void main(String[] args) throws InterruptedException {
+	
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sujjal\\eclipse-workspace\\SeleniumPractice\\drivers\\CHROME_DRIVER\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://www.cleartrip.com/");
+		driver.manage().window().maximize();
+		
+		System.out.println("driver.switchTo().alert().getText()");
+		driver.switchTo().alert().dismiss();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Click OneWay Radio Button
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_rbtnl_Trip_0']")).click();
+		
+		//Validation of Calendar active or not
+		if(driver.findElement(By.xpath("//div[@id='Div1']")).getAttribute("style").contains("0.5")) {
+			
+			System.out.println("it is not enabled now");
+			Assert.assertTrue(true);
+		}
+		else
+			Assert.assertTrue(false);
+		
+		
+		//To Count the no. of checkBoxes in total:
+		System.out.println(driver.findElements(By.xpath("//input[@type='checkbox']")).size());
+		
+		//To click a checkbox and validate whether selected or not
+		WebElement IndianArmyCheckBox= driver.findElement(By.cssSelector("input[name*='IndArm']"));
+		
+		
+		IndianArmyCheckBox.click();
+		System.out.println(IndianArmyCheckBox.isSelected());
+		
+		if (IndianArmyCheckBox.isSelected()==true)
+	    {
+
+	    System.out.println("Checkbox successfully checked");
+	    Assert.assertTrue(IndianArmyCheckBox.isSelected());
+	    }
+		
+		else 
+		{
+			System.out.println("Checkbox not checked");
+			Assert.assertFalse(true);	
+		}
+		
+		
+	/*	//To Uncheck
+		IndianArmyCheckBox.click();
+		
+		if (IndianArmyCheckBox.isSelected()==false)
+
+	    {
+
+	    System.out.println("Checkbox successfully unchecked");
+	    }
+		 Assert.assertFalse(IndianArmyCheckBox.isSelected());*/
+		
+		//Click Departure CIty Button
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_ddl_originStation1_CTXT']")).click();
+		Thread.sleep(2000);
+		
+		//driver.findElement(By.xpath("//a[@value='CCU']")).click(); --> 
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='CCU']")).click() ; //--> XPATH By Parent Child relationship
+		Thread.sleep(2000);
+		
+		// This will always select the 2nd element option
+	//	driver.findElement(By.xpath("(//a[@value='BLR'])[2]")).click(); 
+		
+		// This will always select the 2nd element option
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='BLR']")).click(); //--> XPATH By Parent Child relationship     
+		Thread.sleep(2000);
+		
+		//Select a current date using a unique class name 
+		driver.findElement(By.xpath("//td[contains(@class,'ui-datepicker-current-day ui-datepicker-today')] //a[contains(@class,'ui-state-default ui-state-highlight ui-state-active ui-state-hover')]")).click();
+		Thread.sleep(2000);
+		
+		//Select 3 passengers
+		driver.findElement(By.id("divpaxinfo")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//select[@id='ctl00_mainContent_ddl_Adult']")).click();
+		Thread.sleep(2000);
+		for(int k=0;k<4;k++)
+		{
+			
+			driver.findElement(By.xpath("//select[@id='ctl00_mainContent_ddl_Adult']")).sendKeys(Keys.ARROW_DOWN);
+			Thread.sleep(2000);
+		}
+		
+		driver.findElement(By.xpath("//select[@id='ctl00_mainContent_ddl_Adult']")).sendKeys(Keys.ENTER);
+		driver.findElement(By.id("divpaxinfo")).click();
+		Thread.sleep(2000);
+		
+		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
+		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
+		
+		//Select Currency
+		
+		driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")).click();
+		int l=1;
+		while(l<1)
+		{
+			driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")).sendKeys(Keys.ARROW_DOWN);
+			l++;
+		}
+		driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		
+		//Click Search Button
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_btn_FindFlights']")).click();
+		
+		
+		//Closing the Tab
+		driver.close();
+	}
+
+}

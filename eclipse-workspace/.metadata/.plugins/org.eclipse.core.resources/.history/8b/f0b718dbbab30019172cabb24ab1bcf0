@@ -1,0 +1,160 @@
+package com.RSVP.Pages;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.sql.Time;
+import java.util.Set;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import com.RSVP.Base.TestBase;
+
+public class SignUpPage extends TestBase{
+	
+	
+	@FindBy(xpath="//div[@class='center']//input[@type='submit')]")
+	private WebElement submitButton;
+	
+	@FindBy(xpath="//*[@id='field_block_field_12059']/a")
+	private WebElement uploadNewPhotoButton;
+	
+	@FindBy(xpath="//h3[@class='drop-text']")
+	private WebElement clickToCropImage;
+	
+	@FindBy(id="//input[@id='field_12052']")
+	private WebElement firstNameField;
+	
+	@FindBy(id="//input[@id='field_12053']")
+	private WebElement lastNameField;
+	
+	@FindBy(id="//input[@name='field[12054][value]']")
+	private WebElement emailField;
+	
+	@FindBy(id="//input[@id='phone_flag_field_12055_6884']")
+	private WebElement mobileChekcBox;
+	
+	@FindBy(xpath="//input[@name='field[12055]'")
+	private WebElement mobileNumber;
+	
+	@FindBy(xpath="//label[contains(text(),'Grp 1')]")
+	private WebElement radioGroupButton;
+	
+	@FindBy(name="//select[@name='field[12058]'")
+	private WebElement profileType;
+	
+	@FindBy(name="//select[@id='section_674_745']")
+	private WebElement ticketNumbers;
+	
+	@FindBy(xpath="//*[@id='drop-area_field_12059']/img")
+	private WebElement dropArea;
+	
+	
+	@FindBy(xpath="//*[@id='cropBtn_field_12059']/div[3]/a")
+	private WebElement saveButton;
+	
+	public SignUpPage()
+	{
+		PageFactory.initElements(driver,this);
+	}
+
+	
+	public String verifySignUpPageTitle()
+	{
+		return driver.getTitle();
+	}
+	
+	public void submitWithoutFilling()
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",submitButton);
+		
+		
+		submitButton.click();
+	}
+	
+	public void profileImageFunctionality()
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",uploadNewPhotoButton);
+		uploadNewPhotoButton.click();
+		Set<String> window=driver.getWindowHandles();
+		for (String string : window) {
+			driver.switchTo().window(string);
+		}
+		
+			
+			js.executeScript("arguments[0].scrollIntoView();",dropArea);
+			dropArea.click();
+		
+		Robot r=null;
+		try {
+			r = new  Robot();
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		r.keyPress(KeyEvent.VK_ALT);
+		r.keyPress(KeyEvent.VK_N);
+		r.keyRelease(KeyEvent.VK_N);
+		r.keyRelease(KeyEvent.VK_ALT);
+		r.delay(1000);
+		StringSelection selection1= new StringSelection("C:\\Users\\Diksha\\Desktop\\Untitled.png");
+		Clipboard clipboard1=Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard1.setContents(selection1, selection1);
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_CONTROL);
+		r.delay(1000);
+		r.keyPress(KeyEvent.VK_ALT);
+		r.keyPress(KeyEvent.VK_O);
+		r.keyRelease(KeyEvent.VK_O);
+		r.keyRelease(KeyEvent.VK_ALT);
+		
+		r.delay(3000);
+		js.executeScript("arguments[0].scrollIntoView();",saveButton);
+		saveButton.click();
+		
+		
+		//clickToCropImage.click();
+	}
+	
+	public void submitAfterFilling()
+	{
+		firstNameField.sendKeys("Ujjal");
+		lastNameField.sendKeys("Saha");
+		
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",uploadNewPhotoButton);
+		uploadNewPhotoButton.click();
+		
+		emailField.sendKeys("saha.ujjal4792@gmail.com");
+		mobileChekcBox.click();
+		
+		mobileNumber.sendKeys("9898989898-91");
+		
+		radioGroupButton.click();
+		
+		Select drpdwn=new Select(profileType);
+		drpdwn.selectByVisibleText("Tester");
+		
+		JavascriptExecutor js1=(JavascriptExecutor)driver;
+		js1.executeScript("arguments[0].scrollIntoView();",ticketNumbers);
+		
+		Select drpdwn1=new Select(ticketNumbers);
+		drpdwn.selectByVisibleText("2");	
+		
+		JavascriptExecutor js2=(JavascriptExecutor)driver;
+		js2.executeScript("arguments[0].scrollIntoView();",submitButton);
+		submitButton.click();
+		
+	}
+}

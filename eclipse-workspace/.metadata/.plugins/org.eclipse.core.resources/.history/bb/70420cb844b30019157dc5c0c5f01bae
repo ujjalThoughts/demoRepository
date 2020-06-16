@@ -1,0 +1,98 @@
+package com.RSVP.Pages;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import com.RSVP.Base.TestBase;
+
+public class SignUpPage extends TestBase{
+	
+	
+	@FindBy(xpath="//div[@class='center']//input[@type='submit']")
+	private WebElement submitButton;
+	
+	@FindBy(xpath="//a[contains(text(),'Upload new Photo')]")
+	private WebElement uploadNewPhotoButton;
+	
+	@FindBy(xpath="//h3[@class='drop-text']")
+	private WebElement clickToCropImage;
+	
+	@FindBy(id="//input[@id='field_12052']")
+	private WebElement firstNameField;
+	
+	@FindBy(id="//input[@id='field_12053']")
+	private WebElement lastNameField;
+	
+	@FindBy(id="//input[@name='field[12054][value]']")
+	private WebElement emailField;
+	
+	@FindBy(id="//input[@id='phone_flag_field_12055_6884']")
+	private WebElement mobileChekcBox;
+	
+	@FindBy(xpath="//input[@name='field[12055]'")
+	private WebElement mobileNumber;
+	
+	@FindBy(xpath="//label[contains(text(),'Grp 1')]")
+	private WebElement radioGroupButton;
+	
+	@FindBy(name="//select[@name='field[12058]'")
+	private WebElement profileType;
+	
+	
+	
+	
+	
+	
+	public SignUpPage()
+	{
+		PageFactory.initElements(driver,this);
+	}
+
+	
+	public String verifySignUpPageTitle()
+	{
+		return driver.getTitle();
+	}
+	
+	public void submitWithoutFilling()
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",submitButton);
+		submitButton.click();
+	}
+	
+	public void profileImageFunctionality()
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",uploadNewPhotoButton);
+		//uploadNewPhotoButton.click();
+		
+		//clickToCropImage.click();
+	}
+	
+	public void submitAfterFilling()
+	{
+		firstNameField.sendKeys("Ujjal");
+		lastNameField.sendKeys("Saha");
+		
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",uploadNewPhotoButton);
+		uploadNewPhotoButton.click();
+		
+		emailField.sendKeys("saha.ujjal4792@gmail.com");
+		mobileChekcBox.click();
+		
+		mobileNumber.sendKeys("9898989898-91");
+		
+		radioGroupButton.click();
+		
+		Select drpdwn=new Select(profileType);
+		drpdwn.selectByVisibleText("Tester");
+		
+		
+		
+	}
+}
